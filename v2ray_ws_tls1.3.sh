@@ -61,7 +61,7 @@ if [ -f "/etc/selinux/config" ]; then
     CHECK=$(grep SELINUX= /etc/selinux/config | grep -v "#")
     if [ "$CHECK" != "SELINUX=disabled" ]; then
         semanage port -a -t http_port_t -p tcp 80
-        semanage port -a -t http_port_t -p tcp 443
+        semanage port -a -t http_port_t -p tcp 8080
     fi
 fi
 
@@ -150,7 +150,7 @@ cat > /etc/v2ray/myconfig.json<<-EOF
 {
 ===========配置参数=============
 地址：${your_domain}
-端口：443
+端口：8080
 uuid：${v2uuid}
 额外id：64
 加密方式：aes-128-gcm
@@ -165,7 +165,7 @@ green "=============================="
 green "         安装已经完成"
 green "===========配置参数============"
 green "地址：${your_domain}"
-green "端口：443"
+green "端口：8080"
 green "uuid：${v2uuid}"
 green "额外id：64"
 green "加密方式：aes-128-gcm"
